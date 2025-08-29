@@ -7,7 +7,7 @@ const Jobdata=require("./jobs/data.js");
 const companydata=require("./company/data.js");
 
 async function main(){
-    await mongoose.connect("mongodb://127.0.0.1:27017/apnaintern");
+    await mongoose.connect("mongodb://127.0.0.1:27017/--------");
 }
 main().then((res)=>{
     console.log(res);
@@ -26,5 +26,6 @@ async function initData(){
     await Company.insertMany(companydata);
     console.log("data successfully loaded");
 }
+
 
 initData();
