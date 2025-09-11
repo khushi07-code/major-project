@@ -10,25 +10,29 @@ router.post("/signup",wrapAsync(async(req,res,next)=>{
     try{
         let usertype=req.session.usertype;
         const {username,email,password}=req.body;
-        const newStudent=new User({username,email,usertype});
-        let registerStudent=await User.register(newStudent,password);
-        req.login(registerStudent,(err)=>{
+        const newUser=new User({username,email,usertype});
+        let registerUser=await User.register(newUser,password);
+        req.login(registerUser,(err)=>{
             if(err){
                 next(err);
             }
-            req.flash("success","Welcome to ApnaIntern!");
-            res.redirect("/Student");
+            if(usertype=="student"){
+                res.redirect("/student/details");
+            }else{
+                res.redirect("/company/details");
+            }
+            
         });
     }catch(e){
         req.flash("error",e.message);
-        res.redirect("/Student");
+        res.redirect("/signup");
     }
 }));
 //login
 router.get("/login",(req,res)=>{
     res.render("login.ejs");
 });
-router.post("/login",saveredirectUrl,passport.authenticate("local",{failureRedirect:"/student/login",failureFlash:true}),wrapAsync(async(req,res)=>{
+router.post("/login",saveredirectUrl,passport.authenticate("local",{failureRedirect:"/login",failureFlash:true}),wrapAsync(async(req,res)=>{
     req.flash("success","Welcome to ApnaIntern!");
     if(req.user.usertype==="company"){
         if(res.locals.redirect){

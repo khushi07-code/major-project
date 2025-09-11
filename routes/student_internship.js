@@ -34,7 +34,7 @@ router.get("/:id",isLoggedIn,wrapAsync(async(req,res)=>{
 router.post("/:id",isLoggedIn,isapplied,wrapAsync(async(req,res)=>{
     let application=new Application({
             internshipId: req.params.id,
-            userId: req.user._id
+            userId: req.user.id
         });
     let applied=await application.save();
     if(applied){

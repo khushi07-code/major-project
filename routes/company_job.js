@@ -61,5 +61,4 @@ router.get("/application/:id",isLoggedIn,wrapAsync(async(req,res)=>{
     res.render("company/application.ejs",{application ,applieds});
 }));
 
-
 module.exports=router;

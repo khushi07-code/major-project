@@ -5,7 +5,7 @@ body{
     min-height:100vh;
 
 }
-.container{
+.container,.container-fluid{
     flex:1;
 }
 /* navbar */
@@ -111,4 +111,20 @@ body{
 
 .card-link{
     display: flex;
+}
+
+
+.sidebar{
+    position:relative;
+    left: 0;
+    height: 85vh; /* Full viewport height */
+    width: 250px; 
+    border-radius:2rem;
+    padding-top: 2rem;
+}
+.sidebar a{
+    text-align:left;
+    padding-left: 2rem;
+    border-color: white;
+    color:black
 }

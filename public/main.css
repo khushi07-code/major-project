@@ -20,7 +20,8 @@ body{
 
 .navbar{
     height: 5rem;
-    background-color:whitesmoke;
+   background-color: #ffffff;
+   border-bottom: 2px solid #db1dae;
 }
 .fa-chalkboard-user{
     margin-left:1rem;
