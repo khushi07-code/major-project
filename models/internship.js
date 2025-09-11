@@ -27,6 +27,10 @@ const intershipSchema=new Schema({
         type:Number,
         default:0,
     },
+    duration:{
+        type:Number,
+        default:1
+    },
     openings:{
         type:Number,
         default:1,

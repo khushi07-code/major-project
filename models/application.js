@@ -19,6 +19,7 @@ const applicationSchema=new Schema({
     },
     Status:{
         type:String,
+        enum:["pending","hired","rejected","accepted"],
         default:"pending"
     },
     appliedAt:{
